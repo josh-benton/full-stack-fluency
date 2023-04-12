@@ -23,6 +23,13 @@ Content-Type: application/json
   "task": "Newest task name"
 }
 
+###
+PUT http://localhost:3000/api/tasks/1
+Content-Type: application/json
+
+{
+  "task": "New task"
+}
 
 ###
 DELETE http://localhost:3000/api/tasks/1
