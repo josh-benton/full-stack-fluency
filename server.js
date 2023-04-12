@@ -59,13 +59,13 @@ app.post("/api/tasks", (req, res) => {
 });
 
 //patch handler
-app.patch("api/tasks/:id", (req, res) => {
+app.patch("/api/tasks/:id", (req, res) => {
   const taskId = req.params.id;
   console.log(taskId);
   const { task } = req.body;
   const query =
     "UPDATE todo_list SET task = COALESCE($1, task) WHERE id = $2 RETURNING *";
-  const values = [data.task || null, taskId];
+  const values = [task || null, taskId];
   pool.query(query, values, (err, result) => {
     if (err) {
       console.error(err);
@@ -77,8 +77,6 @@ app.patch("api/tasks/:id", (req, res) => {
     }
   });
 });
-
-//put handler
 
 //delete handler
 app.delete("/api/tasks/:id", (req, res) => {
