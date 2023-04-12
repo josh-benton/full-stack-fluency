@@ -3,3 +3,11 @@ GET http://localhost:3000/test
 
 ###
 GET http://localhost:3000/api/tasks
+
+###
+POST http://localhost:3000/api/tasks
+Content-Type: application/json
+
+{
+  "task": "test"
+}
