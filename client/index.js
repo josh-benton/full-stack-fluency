@@ -36,14 +36,6 @@ async function updateTaskWithPut(id, taskData) {
   return await response.json();
 }
 
-// async function deleteTask(id) {
-//     const response = await fetch(`/api/tasks/${id}`, {
-//         method: "DELETE"
-//     });
-//     console.log(response.status);
-//     return response.status === 204;
-// }
-
 async function deleteTask(id) {
   const response = await fetch(`/api/tasks/${id}`, {
     method: "DELETE",
@@ -79,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
       task: document.getElementById("task-desc").value,
     };
 
-  
     console.log("taskData: ", taskData);
 
     if (taskId) {
@@ -137,24 +128,35 @@ document.addEventListener("DOMContentLoaded", () => {
     taskForm.dataset.taskId = "";
   }
 
-  // Handle click event on task item
+  // Handle edit and delete click events
   function handleTaskListClick(event) {
     const taskId = event.target.closest(".task").getAttribute("task-id");
     const action = event.target.className;
-    let taskDescEl = event.target.closest(".task").querySelector(".task-desc");
-    let taskText = taskDescEl.innerText;
-    console.log(taskText)
+    const taskDescEl = event.target
+      .closest(".task")
+      .querySelector(".task-desc");
 
     if (action === "edit-task") {
-      getTasksById(taskId).then((task) => {
-        taskDescEl.innerHTML = `<input type="text" value="${taskText}"></input>`
-        populateForm(task);
-      });
+      const taskText = taskDescEl.innerText;
+      taskDescEl.innerHTML = `<input type="text" value="${taskText}"></input>`;
+      event.target.innerHTML = "Save";
+      event.target.className = "save-task";
     } else if (action === "delete-task") {
       deleteTask(taskId).then((isDeleted) => {
         if (isDeleted) {
           removeTaskFromUI(taskId);
         }
+      });
+    } else if (action === "save-task") {
+      const newTaskText = taskDescEl.querySelector("input").value;
+      console.log(newTaskText);
+      const taskData = {
+        task: newTaskText,
+      };
+      updateTaskWithPatch(taskId, taskData).then((updatedTask) => {
+        taskDescEl.innerHTML = updatedTask.task;
+        event.target.innerHTML = "Edit";
+        event.target.className = "edit-task";
       });
     }
   }
