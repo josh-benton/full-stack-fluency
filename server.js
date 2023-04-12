@@ -12,7 +12,7 @@ app.use(express.json());
 
 //test get handler
 app.get("/test", (req, res) => {
-  res.send("Hello World!");
+  res.json("Hello World!");
 });
 
 //get handler for api
