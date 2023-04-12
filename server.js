@@ -8,6 +8,7 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
+pool.connect();
 app.use(express.json());
 app.use(express.static("client"))
 
