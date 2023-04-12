@@ -9,6 +9,7 @@ const pool = new Pool({
 });
 
 app.use(express.json());
+app.use(express.static("client"))
 
 //test get handler
 app.get("/test", (req, res) => {
