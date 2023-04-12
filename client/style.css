@@ -1,4 +1,4 @@
-body {
+/* body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,4 +46,131 @@ body {
     flex: 1;
     margin-right: 10px;
   }
+   */
+
+
+
+
+   
+
+   /* Reset browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Caveat', cursive;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 2rem;
+}
+
+h1 {
+    font-family: 'Caveat', cursive;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    outline: none;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1rem;
+}
+
+button.delete-task {
+    background-color: red;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1rem;
+  }
+
+  button.delete-task:hover {
+    background-color: #cc0000;
+  }
   
+  button.save-task {
+    background-color: green;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1rem;
+  }
+
+  button.save-task:hover {
+    background-color: #008000;
+  }
+
+  button.edit-task {
+    background-color: #8a2be2;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1rem;
+  }
+
+  button.edit-task:hover {
+    background-color: #6a1c9a;
+  }
+
+button:hover {
+    background-color: #217dbb;
+}
+
+ul {
+    list-style-type: none;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+li {
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.task-desc {
+    font-size: 2rem;
+    flex-grow: 1;
+}
