@@ -1,4 +1,5 @@
 INSERT INTO todo_list (task) VALUES
-('laundry'),
-('grocery shopping'),
-('mow the lawn');
+('do the laundry'),
+('take out the trash'),
+('mow the lawn'),
+('sweep the floors');
