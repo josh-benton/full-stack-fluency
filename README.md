@@ -1,1 +1,1 @@
-# full-stack-fluency
+# mvp-task-manager
